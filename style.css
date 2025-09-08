@@ -1,0 +1,545 @@
+/*
+Theme Name: Eskişehir Drone Çekimi Web Sitesi
+Theme URI: https://revadijital.com
+Author: Furkan Bayrak
+Author URI: https://revadijital.com/
+Description: Eskişehir drone çekimi hizmetlerinizi tanıtmak için modern ve şık bir web teması.
+Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks, accessibility-ready
+Version: 1.0
+Requires at least: 5.0
+Tested up to: 5.4
+Requires PHP: 7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: eskdrone
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+
+
+/* General Styles */
+:root {
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+    --gray-light: #f8f9fa;
+    --gray-medium: #6c757d;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+/* Navbar Styles */
+.navbar {
+    padding: 1rem 0;
+    transition: var(--transition);
+}
+
+.navbar-brand {
+    font-size: 1.75rem;
+    letter-spacing: 2px;
+    color: var(--primary-color) !important;
+}
+
+.navbar-nav .nav-link {
+    color: var(--primary-color) !important;
+    font-weight: 500;
+    margin: 0 1rem;
+    position: relative;
+    transition: var(--transition);
+}
+
+.navbar-nav .nav-link:hover {
+    opacity: 0.8;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Sayfa Hero Section Styles */
+.sayfa-hero {
+    height: 50vh; /* Kullanıcının isteği üzerine 50vh yükseklik */
+     /* Arkaplan görseli için placeholder, burayı kendi görselinizle değiştirin */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.sayfa-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Metnin okunabilirliğini artırmak için overlay */
+}
+/* Hero Slider Styles */
+.hero-slider {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    margin-top: 0;
+}
+
+#heroCarousel,
+.carousel-inner,
+.carousel-item,
+.hero-slide {
+    height: 100%;
+}
+
+.hero-slide {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    animation: fadeInUp 1s ease;
+}
+
+.carousel-indicators {
+    bottom: 50px;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid var(--secondary-color);
+}
+
+.carousel-indicators button.active {
+    background-color: var(--secondary-color);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+/* Modern Button Styles */
+.btn-modern {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.btn-modern:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-modern:hover::before {
+    left: 100%;
+}
+
+/* Modern HR Line */
+.modern-hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+    margin: 60px auto;
+    width: 50%;
+    position: relative;
+}
+
+.modern-hr::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 5px;
+    background-color: var(--primary-color);
+}
+
+/* Section Styles */
+section {
+    padding: 80px 0;
+}
+
+.display-4 {
+    position: relative;
+    display: inline-block;
+}
+
+.display-4::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+/* Portfolio Styles */
+.portfolio-item {
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.portfolio-overlay {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-overlay img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-overlay:hover img {
+    transform: scale(1.1);
+}
+
+.overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-overlay:hover .overlay-content {
+    opacity: 1;
+}
+
+/* FAQ Accordion Styles */
+.accordion-modern .accordion-item {
+    border: none;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-modern .accordion-button {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    border: 1px solid #e0e0e0;
+    padding: 1.25rem;
+}
+
+.accordion-modern .accordion-button:not(.collapsed) {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    box-shadow: none;
+}
+
+.accordion-modern .accordion-button:focus {
+    box-shadow: none;
+    border-color: var(--primary-color);
+}
+
+.accordion-modern .accordion-button::after {
+    filter: none;
+}
+
+.accordion-modern .accordion-button:not(.collapsed)::after {
+    filter: brightness(0) invert(1);
+}
+
+.accordion-body {
+    padding: 1.5rem;
+    background-color: var(--gray-light);
+}
+
+/* Contact Form Styles */
+.contact-form {
+    background-color: var(--secondary-color);
+    padding: 40px;
+    border-radius: 0;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-control-modern {
+    border: none;
+    border-bottom: 2px solid #e0e0e0;
+    border-radius: 0;
+    padding: 10px 0;
+    background-color: transparent;
+    transition: var(--transition);
+}
+
+.form-control-modern:focus {
+    box-shadow: none;
+    border-bottom-color: var(--primary-color);
+    background-color: transparent;
+}
+
+.form-label {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+/* Footer Styles */
+footer {
+    padding: 30px 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fancybox Custom Styles */
+.fancybox__container {
+    --fancybox-bg: rgba(0, 0, 0, 0.9);
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .navbar-nav {
+        text-align: center;
+        padding: 20px 0;
+    }
+    
+    .navbar-nav .nav-link {
+        margin: 5px 0;
+    }
+    
+    .navbar-nav .nav-link::after {
+        display: none;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 50px 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .modern-hr {
+        width: 70%;
+    }
+    
+    .contact-form {
+        padding: 25px;
+    }
+    
+    .portfolio-item {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+    
+    .btn-modern {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .display-4 {
+        font-size: 1.75rem;
+    }
+    
+    .accordion-button {
+        font-size: 0.95rem;
+    }
+    
+    .modern-hr {
+        width: 90%;
+    }
+}
+
+/* Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Loading Animation for Images */
+img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+img.loaded {
+    opacity: 1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-medium);
+}
+
+
+.no-bosluk {
+    margin: 0;
+    padding: 0;
+}
+.bosluk {
+    padding: 100px 0;
+}
+.it-box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 40px;
+}.it-box i{
+    flex-direction: column;
+    color:black;
+    font-size: 40px;    
+}
+.it-box a{
+    color: black;
+    text-decoration: none;
+    transition: .4s all;
+}
+.it-box a:hover{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: .4s all;
+}
+.bar{
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    object-fit: cover;
+}
+.bar-overlay{
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.bar-overlay h4{
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+}
+.sayfa-bulunamadi {
+    text-align: center;
+    padding: 150px 0;
+}
+.sayfa-bulunamadi span {
+    font-size: 100px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+.sayfa-bulunamadi img {
+    margin-top: -60px;
+}
+.navbar-brand img {
+    height: 80px;
+}
